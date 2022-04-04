@@ -1,0 +1,73 @@
+.nav_bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10vw;
+  background-color: $primary-color;
+  border-bottom: 1px solid rgb(24, 6, 6);
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  //   position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  z-index: 10;
+  position: fixed;
+
+  .search_wrapper {
+    width: 30%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    input {
+      width: 100%;
+      padding: 10px 8px;
+      border: none;
+      outline: none;
+      border-bottom: 1px solid rgb(14, 18, 235);
+      background-color: transparent;
+      color: rgba(255, 255, 255, 0.7);
+
+      input::placeholder {
+        color: #fff;
+      }
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      right: 10px;
+      cursor: pointer;
+    }
+  }
+
+  .login_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-color;
+    cursor: pointer;
+    border-radius: 5px;
+
+    button {
+      background: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      color: $primary-color;
+      font-weight: 500;
+      background: rgba(250, 250, 255, 0.7);
+      padding: 6px 10px;
+
+      img {
+        width: 20px;
+        height: 20px;
+        margin-left: 10px;
+      }
+    }
+  }
+}

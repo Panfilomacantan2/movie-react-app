@@ -10,33 +10,42 @@ const App = () => {
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState("");
 
+  useEffect(() => {
+    fetchMovies("star wars");
+  }, []);
+
   const fetchMovies = async (title) => {
     try {
       const data = await axios.get(`${API_URL}&s=${title}`);
-      setMovies(data.data.Search);
+
+      if (movies === undefined) {
+        alert("NO Movies");
+      } else {
+        setMovies(data.data.Search);
+      }
     } catch (err) {
       console.log(err);
     }
   };
 
   console.log(movies);
-  useEffect(() => {
-    fetchMovies("star wars");
-  }, []);
 
-  return (
-    <>
+  return movies.length < 0 ? (
+    <h1>No Movies Available!</h1>
+  ) : (
+    <div className="app">
       <SearchBar
         search={search}
         setSearch={setSearch}
         fetchMovies={fetchMovies}
       />
 
-      <h1>Search Term: {search}</h1>
-      {movies.map((movie, index) => (
-        <MovieCard key={index} movie={movie} />
-      ))}
-    </>
+      <div className="movie_container">
+        {movies.map((movie, index) => (
+          <MovieCard key={index} movie={movie} />
+        ))}
+      </div>
+    </div>
   );
 };
 
