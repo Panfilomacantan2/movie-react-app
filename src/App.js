@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 
 import MovieCard from "./MovieCard";
 import SearchBar from "./SearchBar";
@@ -30,21 +32,26 @@ const App = () => {
 
   console.log(movies);
 
-  return movies.length < 0 ? (
-    <h1>No Movies Available!</h1>
-  ) : (
+  return (
     <div className="app">
       <SearchBar
         search={search}
         setSearch={setSearch}
         fetchMovies={fetchMovies}
       />
+     
 
-      <div className="movie_container">
-        {movies.map((movie, index) => (
-          <MovieCard key={index} movie={movie} />
-        ))}
-      </div>
+      {movies?.length < 0 ? (
+        <h1>No Movies Available!</h1>
+      ) : (
+        <div className="movie_container">
+          {movies.map((movie, index) => (
+            <Link to="/details" key={index}>
+              <MovieCard movie={movie} />
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

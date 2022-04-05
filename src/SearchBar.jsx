@@ -1,6 +1,5 @@
 import React from "react";
-
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./styles/App.scss";
 import searchIcon from "./styles/search.svg";
@@ -23,9 +22,11 @@ const searchBar = ({ search, setSearch, fetchMovies }) => {
       </div>
 
       <div className="login_btn">
-        <button type="button">
-          LOGIN <img src={avatarIcon} alt="avatar" />
-        </button>
+        <Link to="/login">
+          <button type="button">
+            LOGIN <img src={avatarIcon} alt="avatar" />
+          </button>
+        </Link>
       </div>
     </nav>
   );
