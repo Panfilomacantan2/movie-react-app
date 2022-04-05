@@ -6,6 +6,17 @@ import searchIcon from "./styles/search.svg";
 import avatarIcon from "./styles/avatar.svg";
 
 const searchBar = ({ search, setSearch, fetchMovies }) => {
+  const handleOnClick = () => {
+    if (!search.trim()) {
+      console.log("input plsss!");
+
+      
+      return;
+    }
+
+    fetchMovies(search);
+  };
+
   return (
     <nav className="nav_bar">
       <div className="search_wrapper">
@@ -14,11 +25,7 @@ const searchBar = ({ search, setSearch, fetchMovies }) => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <img
-          src={searchIcon}
-          alt="search"
-          onClick={() => fetchMovies(search)}
-        />
+        <img src={searchIcon} alt="search" onClick={handleOnClick} />
       </div>
 
       <div className="login_btn">
