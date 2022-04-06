@@ -42,7 +42,7 @@ const App = () => {
       ) : (
         <div className="movie_container">
           {movies.map((movie, index) => (
-            <Link to="/details" key={index}>
+            <Link to={`/details/${movie.imdbID}`} key={index}>
               <MovieCard movie={movie} />
             </Link>
           ))}
