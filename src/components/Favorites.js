@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
 
 const Favorites = () => {
-  const favorite = JSON.parse(localStorage.getItem("favorites"));
+  let favorite;
   const [favorites, setFavorites] = useState([]);
+
+  if (localStorage.getItem("favorites") === null) {
+    favorite = [];
+  } else {
+    favorite = JSON.parse(localStorage.getItem("favorites"));
+  }
 
   const handleRemoveToLocalStorage = (index) => {
     favorites.splice(index, 1);
@@ -16,7 +22,10 @@ const Favorites = () => {
 
   return (
     <section className="movie">
-      <h4>Favorites {favorites.length}</h4>
+      <h4>
+        {favorites.length ? "Favorites" : ""}{" "}
+        {favorites.length ? favorites.length : "No favorites"}
+      </h4>
 
       {favorites === null ? (
         <h1>No Movies Available!</h1>
