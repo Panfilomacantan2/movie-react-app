@@ -8,17 +8,61 @@
   background-color: #ffffff;
   padding: 50px 10vw;
 
+  @include sm-screen {
+    padding: 50px 10px;
+  }
+
+  @include xs-screen {
+    padding: 10px;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 20px;
+  }
+
   .movie_details {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     place-items: center;
-    column-gap: 40px;
+    column-gap: 30px;
+
+    @include sm-screen {
+      grid-template-columns: 1fr;
+    }
+
+    @include xs-screen {
+      grid-template-columns: 1fr;
+    }
+
+    .movie_details_left {
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+
+      img {
+        @include sm-screen {
+          width: 80%;
+        }
+
+        @include xs-screen {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
 
     .movie_details_right {
       padding: 50px 10px;
       display: flex;
       flex-direction: column;
-      row-gap: 20px;
+      row-gap: 10px;
 
       button {
         background-color: #151786;
