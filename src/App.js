@@ -6,18 +6,11 @@ import MovieCard from "./MovieCard";
 import SearchBar from "./SearchBar";
 
 const App = () => {
-  const API_URL = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_MY_SECRET_API_KEY}`;
   const defaultTile = "spider";
+  const API_URL = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_MY_SECRET_API_KEY}`;
+
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    if (!search.trim()) {
-      fetchMovies(defaultTile);
-    } else {
-      fetchMovies(search);
-    }
-  }, [search]);
 
   const fetchMovies = async (title) => {
     try {
@@ -28,6 +21,16 @@ const App = () => {
       console.log(err, "No results found");
     }
   };
+
+  useEffect(() => {
+    if (!search.trim()) {
+      fetchMovies(defaultTile);
+    } else {
+      fetchMovies(search);
+    }
+
+    fetchMovies(defaultTile);
+  }, [search]);
 
   return (
     <div className="app">
@@ -42,7 +45,7 @@ const App = () => {
       ) : (
         <div className="movie_container">
           {movies.map((movie, index) => (
-            <Link to={`/details/${movie.imdbID}`} key={index}>
+            <Link style={{ textDecoration: 'none' }} to={`/details/${movie.imdbID}`} key={index}>
               <MovieCard movie={movie} />
             </Link>
           ))}
@@ -53,3 +56,5 @@ const App = () => {
 };
 
 export default App;
+
+//TODO: add favorites page and heart icon to click

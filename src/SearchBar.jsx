@@ -4,16 +4,14 @@ import { Link } from "react-router-dom";
 import "./styles/App.scss";
 import searchIcon from "./styles/search.svg";
 import avatarIcon from "./styles/avatar.svg";
+import hamburger from "./styles/hamburger.jpg";
 
 const searchBar = ({ search, setSearch, fetchMovies }) => {
   const handleOnClick = () => {
     if (!search.trim()) {
-      console.log("input plsss!");
-
-      
+      console.log("input pls!");
       return;
     }
-
     fetchMovies(search);
   };
 
@@ -28,13 +26,19 @@ const searchBar = ({ search, setSearch, fetchMovies }) => {
         <img src={searchIcon} alt="search" onClick={handleOnClick} />
       </div>
 
+      <Link style={{ textDecoration: 'none' }} to="/favorites">
+        <button className="btn_favorites">Favorites</button>
+      </Link>
+
       <div className="login_btn">
-        <Link to="/login">
+        <Link style={{ textDecoration: 'none' }} to="/login">
           <button type="button">
             LOGIN <img src={avatarIcon} alt="avatar" />
           </button>
         </Link>
       </div>
+
+      <img className="hamburger" src={hamburger} alt="hamburger" />
     </nav>
   );
 };

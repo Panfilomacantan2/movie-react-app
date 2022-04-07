@@ -1,6 +1,6 @@
 .movie {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,7 +10,25 @@
 
   .movie_details {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     place-items: center;
+    column-gap: 40px;
+
+    .movie_details_right {
+      padding: 50px 10px;
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+
+      button {
+        background-color: #151786;
+        color: #fff;
+        padding: 8px 14px;
+        border-radius: 5px;
+        margin-top: 10px;
+        cursor: pointer;
+        display: block;
+      }
+    }
   }
 }
