@@ -6,13 +6,13 @@ import searchIcon from "./styles/search.svg";
 import avatarIcon from "./styles/avatar.svg";
 import hamburger from "./styles/hamburger.jpg";
 
-const searchBar = ({ search, setSearch, fetchMovies }) => {
+const searchBar = ({ search, setSearch, fetchMovies }) => {   
   const handleOnClick = () => {
     if (!search.trim()) {
       console.log("input pls!");
       return;
     }
-    fetchMovies(search);
+    fetchMovies(search.toLowerCase());
   };
 
   return (
@@ -21,17 +21,17 @@ const searchBar = ({ search, setSearch, fetchMovies }) => {
         <input
           placeholder="Search for movies"
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => setSearch(e.target.value.toLowerCase())}
         />
         <img src={searchIcon} alt="search" onClick={handleOnClick} />
       </div>
 
-      <Link style={{ textDecoration: 'none' }} to="/favorites">
+      <Link style={{ textDecoration: "none" }} to="/favorites">
         <button className="btn_favorites">Favorites</button>
       </Link>
 
       <div className="login_btn">
-        <Link style={{ textDecoration: 'none' }} to="/login">
+        <Link style={{ textDecoration: "none" }} to="/login">
           <button type="button">
             LOGIN <img src={avatarIcon} alt="avatar" />
           </button>

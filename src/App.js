@@ -26,7 +26,7 @@ const App = () => {
     if (!search.trim()) {
       fetchMovies(defaultTile);
     } else {
-      fetchMovies(search);
+      fetchMovies(search.toLowerCase());
     }
 
     fetchMovies(defaultTile);
