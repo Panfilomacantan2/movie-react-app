@@ -1,0 +1,74 @@
+.form_wrapper {
+  width: 500px;
+  padding: 20px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+
+  .login_form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+    h3 {
+      display: block;
+      text-align: start;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .form_group {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 20px;
+
+      label {
+        font-size: 14px;
+        font-weight: bold;
+        color: #000;
+        margin-bottom: 5px;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      input {
+        width: 100%;
+        height: 40px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding: 0 10px;
+        font-size: 14px;
+        color: #000;
+        margin-bottom: 10px;
+      }
+
+      .btn-primary {
+        width: 100%;
+        height: 40px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding: 0 10px;
+        font-size: 14px;
+        color: #fff;
+        margin-bottom: 10px;
+        cursor: pointer;
+        background-color: $primary-color;
+        transition: all 0.7s;
+
+        &:hover {
+          background-color: rgb(27, 6, 6);
+        }
+      }
+    }
+  }
+}
